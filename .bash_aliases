@@ -1,0 +1,8 @@
+alias vim='vim -X'
+alias vi='vim -X'
+alias reloada='. ~/.bashrc'
+alias edita='vim -X ~/.bash_aliases'
+alias reboot='sudo shutdown -r now'
+alias samba='sudo /etc/init.d/samba'
+alias todayNotes='/home/nate/git/class-notes/class-notes.sh'
+alias gitCheck='~/git/git_check/git_check.sh'
