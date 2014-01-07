@@ -14,6 +14,7 @@ alias reboot='sudo shutdown -r now'
 alias todayNotes='/home/nate/git/class-notes/class-notes.sh'
 alias gitCheck='~/git/git_scripts/git_check.sh ~/git/'
 alias renTag='~/git/git_scripts/rename_tag.sh'
+alias gg='~/git/git_scripts/gist_commit.sh'
 
 #tmux
 alias tls='tmux list-sessions'
