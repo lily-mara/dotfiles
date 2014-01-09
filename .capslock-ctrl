@@ -1,0 +1,5 @@
+! Swap caps lock and escape
+! run `xmodmap ~/dotfiles/.capslock-ctrl
+remove Lock = Caps_Lock
+keysym Caps_Lock = Control
+add Lock = Caps_Lock
