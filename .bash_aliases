@@ -11,8 +11,8 @@ alias commita='~/git/git_scripts/commit_aliases.sh'
 alias reboot='sudo shutdown -r now'
 
 #scripts
-alias todayNotes='/home/nate/git/class-notes/class-notes.sh'
-alias gitCheck='~/git/git_scripts/git_check.sh ~/git/'
+alias nn='/home/nate/git/class-notes/class-notes.sh'
+alias gc='~/git/git_scripts/git_check.sh ~/git/'
 alias renTag='~/git/git_scripts/rename_tag.sh'
 alias gg='~/git/git_scripts/gist_commit.sh'
 
