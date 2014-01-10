@@ -3,7 +3,7 @@
 ## creates all of the symlinks for dotfiles in this folder ##
 
 this_folder=`pwd`
-dotfiles=`ls | grep -v '^\.'`
+dotfiles=`ls -a | grep '^\.' | grep -v '^\.\+$'`
 
 for i in $dotfiles
 do
