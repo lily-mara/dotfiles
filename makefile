@@ -11,5 +11,5 @@ all : $(dotfiles)
 /home/nate/.tmux.conf : tmux.conf
 	ln -s ~/git/dotfiles/tmux.conf ~/.tmux.conf
 
-clear : 
+clean : 
 	rm $(dotfiles)
