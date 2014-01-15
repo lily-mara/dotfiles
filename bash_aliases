@@ -13,7 +13,7 @@ alias commita='$DOTFILES/bin/git_scripts/commit_aliases.sh'
 alias reboot='sudo shutdown -r now'
 
 #scripts
-alias nn='/home/nate/git/class-notes/class-notes.sh'
+alias nn='$DOTFILES/bin/class-notes/class-notes.sh'
 alias gc='$DOTFILES/bin/git_scripts/git_check.sh ~/git/'
 alias renTag='$DOTFILES/bin/git_scripts/rename_tag.sh'
 alias gg='$DOTFILES/bin/git_scripts/gist_commit.sh'
