@@ -1,14 +1,14 @@
-dotfiles=/home/nate/.bash_aliases /home/nate/.bashrc /home/nate/.tmux.conf
+dotfiles=$(HOME)/.bash_aliases $(HOME)/.bashrc $(HOME)/.tmux.conf
 
 all : $(dotfiles)
 
-/home/nate/.bash_aliases : bash_aliases
+$(HOME)/.bash_aliases : bash_aliases
 	ln -s ~/git/dotfiles/bash_aliases ~/.bash_aliases
 	
-/home/nate/.bashrc : bashrc
+$(HOME)/.bashrc : bashrc
 	ln -s ~/git/dotfiles/bashrc ~/.bashrc
 	
-/home/nate/.tmux.conf : tmux.conf
+$(HOME)/.tmux.conf : tmux.conf
 	ln -s ~/git/dotfiles/tmux.conf ~/.tmux.conf
 
 clean : 
