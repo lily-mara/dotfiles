@@ -6,7 +6,7 @@ dotfiles=$(HOME)/.bash_aliases $(HOME)/.bashrc $(HOME)/.tmux.conf
 all : $(dotfiles)
 
 $(HOME)/.bash_aliases : bash_aliases
-	sed -i -e '1s/DOTFILES_DIR_REPLACE/$(dotfiles_dir_esc)/' bash_aliases
+	sed -i -e "1s/DOTFILES.*/DOTFILES=\'$(dotfiles_dir_esc)\'/" bash_aliases
 	ln -s $(dotfiles_dir)/bash_aliases ~/.bash_aliases
 	
 $(HOME)/.bashrc : bashrc
@@ -17,4 +17,4 @@ $(HOME)/.tmux.conf : tmux.conf
 
 clean : 
 	rm $(dotfiles)
-	sed -e '1s/$(dotfiles_dir_esc)/DOTFILES_DIR_REPLACE/' bash_aliases
+	sed -i -e "1s/DOTFILES.*/DOTFILES=\'\'/" bash_aliases
