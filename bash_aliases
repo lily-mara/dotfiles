@@ -1,4 +1,4 @@
-DOTFILES='/home/nate/git/dotfiles'
+DOTFILES='~/git/dotfiles:~/dotfiles:~/.dotfiles'
 
 #VIM!
 alias vim='vim -X'
