@@ -1,4 +1,4 @@
-DOTFILES='~/git/dotfiles:~/dotfiles:~/.dotfiles'
+DOTFILES='DOTFILES_DIR_REPLACE'
 
 #VIM!
 alias vim='vim -X'
