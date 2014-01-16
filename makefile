@@ -17,4 +17,4 @@ $(HOME)/.tmux.conf : tmux.conf
 
 clean : 
 	rm $(dotfiles)
-	sed -e '1s/$(dotfiles_dir_esc)/DOTFILES_DIR_REPLACE/'
+	sed -e '1s/$(dotfiles_dir_esc)/DOTFILES_DIR_REPLACE/' bash_alias
