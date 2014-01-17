@@ -1,5 +1,5 @@
 #!/bin/sh
 
-git add .
+git add -A
 git commit -m 'null'
 git push
