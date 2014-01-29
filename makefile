@@ -7,7 +7,7 @@ all : $(links)
 	. $(HOME)/.bashrc
 
 $(bindir)/suspend : bin/suspend.sh
-	ln -s $(dotfiles_dir)/bin/suspend.sh $(bindir)/suspend
+	sudo ln -s $(dotfiles_dir)/bin/suspend.sh $(bindir)/suspend
 
 $(HOME)/.bash_aliases : aliases
 	ln -s $(dotfiles_dir)/aliases ~/.bash_aliases
