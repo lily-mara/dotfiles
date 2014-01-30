@@ -1,10 +1,13 @@
 bindir=/usr/bin
 dotfiles_dir=$(shell pwd)
 
-links=$(HOME)/.bash_aliases $(HOME)/.bashrc $(HOME)/.tmux.conf $(HOME)/.dotfiles $(bindir)/suspend
+links=$(HOME)/.bash_aliases $(HOME)/.bashrc $(HOME)/.tmux.conf $(HOME)/.dotfiles $(bindir)/suspend $(bindir)/screenfetch
 
 all : $(links)
 	. $(HOME)/.bashrc
+
+$(bindir)/screenfetch : bin/screenfetch/screenfetch-dev
+	sudo ln -s $(dotfiles_dir)/bin/screenfetch/screenfetch-dev $(bindir)/screenfetch
 
 $(bindir)/suspend : bin/suspend.sh
 	sudo ln -s $(dotfiles_dir)/bin/suspend.sh $(bindir)/suspend
