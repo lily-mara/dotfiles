@@ -6,8 +6,8 @@ links=$(HOME)/.bash_aliases $(HOME)/.bashrc $(HOME)/.tmux.conf $(HOME)/.dotfiles
 all : $(links)
 	. $(HOME)/.bashrc
 
-$(bindir)/speedtest : bin/speedtest/speedtest
-	sudo ln -s $(dotfiles_dir)/bin/speedtest/speedtest $(bindir)/speedtest
+$(bindir)/speedtest : bin/speedtest
+	sudo ln -s $(dotfiles_dir)/bin/speedtest $(bindir)/speedtest
 
 $(bindir)/screenfetch : bin/screenfetch/screenfetch-dev
 	sudo ln -s $(dotfiles_dir)/bin/screenfetch/screenfetch-dev $(bindir)/screenfetch
