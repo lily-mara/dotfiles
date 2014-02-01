@@ -18,6 +18,9 @@ alias ne='vim -X $(date -I)/README.md'
 alias gc='$DOTFILES/bin/git_scripts/git_check.sh ~/git/'
 alias renTag='$DOTFILES/bin/git_scripts/rename_tag.sh'
 alias gg='$DOTFILES/bin/git_scripts/gist_commit.sh'
+alias suspend='sudo $DOTFILES/bin/suspend.sh'
+alias speedtest='$DOTFILES/bin/speedtest.sh'
+alias screenfetch='$DOTFILES/bin/screenfetch/screenfetch.sh'
 
 #tmux
 alias tls='tmux list-sessions'
