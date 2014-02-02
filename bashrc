@@ -61,7 +61,7 @@ fi
 #else
     #PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 #fi
-PS1='\e[1;32m\n\u@\H \e[1;33m\w\n\e[1;37m$ '
+PS1='\n\u@\H \w\n$ '
 unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
