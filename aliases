@@ -20,7 +20,7 @@ alias renTag='$DOTFILES/bin/git_scripts/rename_tag.sh'
 alias gg='$DOTFILES/bin/git_scripts/gist_commit.sh'
 alias suspend='sudo $DOTFILES/bin/suspend.sh'
 alias speedtest='$DOTFILES/bin/speedtest.sh'
-alias screenfetch='$DOTFILES/bin/screenfetch/screenfetch.sh'
+alias screenfetch='$DOTFILES/bin/screenfetch/screenfetch-dev'
 
 #tmux
 alias tls='tmux list-sessions'
