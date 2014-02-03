@@ -158,6 +158,7 @@ if ! shopt -oq posix; then
 fi
 
 export TERM=xterm-256color
+export EDITOR=vim
 
 # Less Colors for Man Pages 
 export LESS_TERMCAP_mb=$'\E[01;31m'       # begin blinking 
