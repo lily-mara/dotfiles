@@ -27,3 +27,6 @@ alias tls='tmux list-sessions'
 alias tat='tmux attach -t'
 alias tn='tmux new -s'
 alias tk='tmux kill-session -t'
+
+#misc
+alias coke='echo $(( ($(date +%s) - $(date --date="140203" +%s) )/(60*60*24) ))'
