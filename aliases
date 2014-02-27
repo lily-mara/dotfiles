@@ -30,3 +30,4 @@ alias tk='tmux kill-session -t'
 
 #misc
 alias coke='echo $(( ($(date +%s) - $(date --date="140203" +%s) )/(60*60*24) ))'
+alias clone_me='git clone ssh://github.com/natemara/$@'
