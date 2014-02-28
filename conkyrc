@@ -32,7 +32,7 @@ TEXT
 ${goto 173}${color0}${font Zekton:style=bold:size=12}${voffset 40}${exec whoami}
 ${voffset -30}${font Zekton:size=12}${color0}${goto 40}${uptime}
 ${goto 85}${color1}${font Zekton:style=Bold:size=9}${color1}${sysname}${color}${font}
-${voffset 70}${goto 40}${font Zekton:style=bold:size=30}${time %H:%M}${font}${voffset 10}${goto 181}${font Zekton:style=Bold:size=9}CPU 
+${voffset 70}${goto 20}${font Zekton:style=bold:size=30}${time %H:%M}${font}${voffset 10}${goto 181}${font Zekton:style=Bold:size=9}CPU 
 ${goto 186}${font Zekton:style=Bold:size=9}${color0}${cpu cpu1}%
 ${color1}${voffset 40}${goto 39}/home${color1}${goto 131}SWAP
 ${color0}${goto 38}${font Zekton:style=Bold:size=9}${fs_used /home}${goto 140}${swapperc}${font Zekton:style=Bold:size=9}${font}%
