@@ -61,7 +61,10 @@ fi
 #else
     #PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 #fi
-PS1='\n\u@\H \w\n$ '
+parse_git_branch() {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+  }
+PS1='\n\u@\H \w $(parse_git_branch)\n$ '
 unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
