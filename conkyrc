@@ -39,5 +39,7 @@ ${color0}${goto 38}${font Zekton:style=Bold:size=9}${fs_used /home}${goto 140}${
 ${font Zekton:style=Bold:size=9}${font}${color1}
 ${voffset 10}${goto 92}${font Zekton:style=Bold:size=9}RAM
 ${color0}${goto 96}${font Zekton:style=Bold:size=9}${memperc}%
+${voffset 40}${goto 90}${color1}BATTERY
+${voffset 10}${goto 90}${color0}${battery}
 
 ${image /usr/share/conkypic/lsd.png -p 10,0}
