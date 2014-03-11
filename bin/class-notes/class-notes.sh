@@ -1,8 +1,8 @@
 #!/bin/sh
 today=$(date +%Y-%m-%d)
 
-mkdir $today/
-cd $today/
+mkdir NOTES--$today/
+cd NOTES--$today/
 
 echo $today >> README.md
 echo ========== >> README.md
