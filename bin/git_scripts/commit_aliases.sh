@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cd ~/git/dotfiles
-git add .bash_aliases
+cd ~/.dotfiles
+git add aliases
 git commit -m "$1"
 git push

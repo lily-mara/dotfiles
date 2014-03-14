@@ -14,7 +14,7 @@ alias reboot='sudo shutdown -r now'
 
 #scripts
 alias nn='$DOTFILES/bin/class-notes/class-notes.sh'
-alias ne='vim -X $(date -I)/README.md'
+alias ne='vim -X lectures/$(date -I).md'
 alias gc='$DOTFILES/bin/git_scripts/git_check.sh ~/git/'
 alias renTag='$DOTFILES/bin/git_scripts/rename_tag.sh'
 alias gg='$DOTFILES/bin/git_scripts/gist_commit.sh'
