@@ -1,12 +1,13 @@
 #!/bin/sh
 today=$(date +%Y-%m-%d)
 
-mkdir NOTES--$today/
-cd NOTES--$today/
+filename=$today.md
 
-echo $today >> README.md
-echo ========== >> README.md
-echo >> README.md
-echo >> README.md
+cd lectures/
 
-vim -X +$ +star README.md
+echo $today >> $filename
+echo ========== >> $filename
+echo >> $filename
+echo >> $filename
+
+vim -X +$ +star $filename
