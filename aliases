@@ -5,9 +5,11 @@ alias vim='vim -X'
 alias vi='vim -X'
 
 #this file
-alias reloada='. ~/.bashrc'
-alias edita='vim -X ~/.bash_aliases'
-alias commita='$DOTFILES/bin/git_scripts/commit_aliases.sh'
+if [ -n "$ZSH_VERSION" ]; then
+	alias reloada='. /home/nate/.zshrc'
+else
+	alias reloada='. /home/nate/.bashrc'
+fi
 
 #system functions
 alias reboot='sudo shutdown -r now'
@@ -30,3 +32,4 @@ alias tk='tmux kill-session -t'
 
 #misc
 alias coke='echo $(( ($(date +%s) - $(date --date="140203" +%s) )/(60*60*24) ))'
+alias pep8='pep8 --ignore=W191'

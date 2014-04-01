@@ -6,7 +6,7 @@ all : $(links)
 	. $(HOME)/.bashrc
 
 $(HOME)/.bash_aliases : aliases
-	ln -s $(dotfiles_dir)/aliases ~/.bash_aliases
+	ln -s $(dotfiles_dir)/aliases ~/.aliases
 	
 $(HOME)/.bashrc : bashrc
 	ln -s $(dotfiles_dir)/bashrc ~/.bashrc
