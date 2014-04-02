@@ -3,7 +3,6 @@ dotfiles_dir=$(shell pwd)
 links=$(HOME)/.bash_aliases $(HOME)/.bashrc $(HOME)/.tmux.conf $(HOME)/.dotfiles $(HOME)/.conkyrc
 
 all : $(links)
-	. $(HOME)/.bashrc
 
 $(HOME)/.bash_aliases : aliases
 	ln -s $(dotfiles_dir)/aliases ~/.aliases
