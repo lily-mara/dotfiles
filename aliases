@@ -33,3 +33,4 @@ alias tk='tmux kill-session -t'
 #misc
 alias coke='echo $(( ($(date +%s) - $(date --date="140203" +%s) )/(60*60*24) ))'
 alias pep8='pep8 --ignore=W191'
+alias python='/usr/bin/env python3'
