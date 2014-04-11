@@ -4,7 +4,7 @@ links=$(HOME)/.bash_aliases $(HOME)/.bashrc $(HOME)/.tmux.conf $(HOME)/.dotfiles
 
 all : $(links)
 
-$(HOME)/.bash_aliases : aliases
+$(HOME)/.aliases : aliases
 	ln -s $(dotfiles_dir)/aliases ~/.aliases
 	
 $(HOME)/.bashrc : bashrc
