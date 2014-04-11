@@ -6,9 +6,9 @@ alias vi='vim -X'
 
 #this file
 if [ -n "$ZSH_VERSION" ]; then
-	alias reloada='. /home/nate/.zshrc'
+	alias reloada='. ~/.zshrc'
 else
-	alias reloada='. /home/nate/.bashrc'
+	alias reloada='. ~/.bashrc'
 fi
 
 #system functions
