@@ -21,6 +21,10 @@ def parse_for_task():
 	if 'clean' in arglist:
 		clean_all_links()
 		return
+	if 'relink' in arglist:
+		clean_all_links()
+		make_all_links()
+		return
 	make_all_links()
 
 
