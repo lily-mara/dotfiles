@@ -1,6 +1,6 @@
 dotfiles_dir=$(shell pwd)
 
-links=$(HOME)/.bash_aliases $(HOME)/.bashrc $(HOME)/.tmux.conf $(HOME)/.dotfiles $(HOME)/.conkyrc
+links=$(HOME)/.aliases $(HOME)/.bashrc $(HOME)/.tmux.conf $(HOME)/.dotfiles $(HOME)/.conkyrc
 
 all : $(links)
 
