@@ -41,26 +41,7 @@ def make_all_links():
 		if not exists(file):
 			make_link(file)
 		else:
-			if safe_to_link(file):
-				make_link(file)
-			else:
-				print('Skipping {0}...'.format(file))
-
-
-def safe_to_link(file):
-	path = dotfile_path(file)
-	is_link = os.path.islink(path)
-	if not is_link:
-		delete = input('{0} exists, and is not a link, delete? (y/n)'.format(file))
-		if delete.lower() == 'y':
-			os.remove(path)
-			return True
-		return False
-	delete = input('{0} exists, and is a link, delete? (y/n)'.format(file))
-	if delete.lower() == 'y':
-		os.remove(path)
-		return True
-	return False
+			print('Skipping {0}...'.format(file))
 
 
 def dotfile_path(file):
