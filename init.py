@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import os
 import sys
+import subprocess
 
 files = [
 		'aliases',
@@ -26,7 +27,26 @@ def parse_for_task():
 		clean_all_links()
 		make_all_links()
 		return
+	if 'vim' in arglist:
+		git_vim()
+		return
 	make_all_links()
+
+
+def git_vim():
+	homepath = os.path.expanduser('~')
+	vimpath = os.path.join(home_path, '.vim')
+	vimrc_path = os.path.join(vimpath, '.vimrc')
+	vimrc_link_path = os.path.join(home_path, '.vimrc')
+	if not os.path.exists(vimpath):
+		subprocess.call(['git', 'clone', 'ssh://git@github.com/natemara/vimfiles', vimpath])
+		os.symlink(vimrc_path, vimrc_link_path)
+	else:
+		delete = input('{0} already exists, overwrite? (y/n) '.format(vimpath))
+		if delete.lower() == 'y':
+			os.remove(vimpath)
+			git_vim()
+
 
 
 def clean_all_links():
