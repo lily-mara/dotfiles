@@ -10,9 +10,23 @@ files = [
 		'conkyrc'
 ]
 
+tasks = {
+		'link': 'create symlinks for dotfiles in this folder',
+		'clean': 'remove symlinks for dotfiles in this folder',
+		'relink': 'remove and then create symlinks for files in this folder',
+		'vim': 'download and link vim config from github'
+		}
+
 
 def main():
-	parse_for_task()
+	print()
+	print('relaunch as ./init.py [task]')
+	print()
+	print('{0:10}{1:30}'.format('Task', 'Description'))
+	print('-' * 9 + ' ' + '-' * 29)
+	for task, description in tasks.items():
+		print('{0:10}{1:30}'.format(task, description))
+	print()
 
 
 def parse_for_task():
