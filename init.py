@@ -5,7 +5,8 @@ import sys
 files = [
 		'aliases',
 		'bashrc',
-		'tmux.conf'
+		'tmux.conf',
+		'conkyrc'
 ]
 
 
