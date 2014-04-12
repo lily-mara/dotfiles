@@ -2,6 +2,7 @@
 import os
 import sys
 import subprocess
+import shutil
 
 files = [
 		'aliases',
@@ -19,6 +20,13 @@ tasks = {
 
 
 def main():
+	if len(sys.argv) == 1:
+		print_tasks()
+	else:
+		parse_for_task()
+
+
+def print_tasks():
 	print()
 	print('relaunch as ./init.py [task]')
 	print()
@@ -48,17 +56,26 @@ def parse_for_task():
 
 
 def git_vim():
-	homepath = os.path.expanduser('~')
+	home_path = os.path.expanduser('~')
 	vimpath = os.path.join(home_path, '.vim')
 	vimrc_path = os.path.join(vimpath, '.vimrc')
 	vimrc_link_path = os.path.join(home_path, '.vimrc')
+	bundle_path = os.path.join(vimpath, 'bundle')
+	vundle_path = os.path.join(bundle_path, 'vundle')
 	if not os.path.exists(vimpath):
 		subprocess.call(['git', 'clone', 'ssh://git@github.com/natemara/vimfiles', vimpath])
 		os.symlink(vimrc_path, vimrc_link_path)
+		os.mkdir(bundle_path)
+		subprocess.call(['git', 'clone', 'https://github.com/gmarik/vundle', vundle_path])
+		subprocess.call(['vim', '-S', 'install'])
 	else:
 		delete = input('{0} already exists, overwrite? (y/n) '.format(vimpath))
 		if delete.lower() == 'y':
-			os.remove(vimpath)
+			shutil.rmtree(vimpath)
+			try:
+				os.remove(vimrc_link_path)
+			except:
+				pass
 			git_vim()
 
 
