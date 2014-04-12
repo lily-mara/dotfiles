@@ -22,10 +22,10 @@ def main():
 	print()
 	print('relaunch as ./init.py [task]')
 	print()
-	print('{0:10}{1:30}'.format('Task', 'Description'))
-	print('-' * 9 + ' ' + '-' * 29)
+	print('{0:10}{1}'.format('Task', 'Description'))
+	print('-' * 9 + ' ' + '-' * 19)
 	for task, description in tasks.items():
-		print('{0:10}{1:30}'.format(task, description))
+		print('{0:10}{1}'.format(task, description))
 	print()
 
 
