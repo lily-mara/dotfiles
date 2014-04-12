@@ -67,7 +67,7 @@ def git_vim():
 		os.symlink(vimrc_path, vimrc_link_path)
 		os.mkdir(bundle_path)
 		subprocess.call(['git', 'clone', 'https://github.com/gmarik/vundle', vundle_path])
-		subprocess.call(['vim', '-S', 'install'])
+		subprocess.call(['vim', '-c', 'BundleInstall'])
 	else:
 		delete = input('{0} already exists, overwrite? (y/n) '.format(vimpath))
 		if delete.lower() == 'y':
