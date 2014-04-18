@@ -15,8 +15,12 @@ tasks = {
 		'link': 'create symlinks for dotfiles in this folder',
 		'clean': 'remove symlinks for dotfiles in this folder',
 		'relink': 'remove and then create symlinks for files in this folder',
-		'vim': 'download and link vim config from github'
+		'vim': 'download and link vim config from github',
+		'git_config': 'setup the global git configuration (name, email, ignore)',
+		'all': 'do all of the tasks for setting up a new computer, in order'
 		}
+
+dotfiles_dir = os.path.dirname(os.path.realpath(__file__))
 
 
 def main():
@@ -56,6 +60,14 @@ def parse_for_task():
 	if 'vim' in arglist:
 		git_vim()
 		return
+	if 'git_config' in arglist:
+		git_config()
+		return
+	if 'all' in arglist:
+		git_config()
+		make_all_links()
+		git_vim()
+		return
 	make_all_links()
 
 
@@ -91,13 +103,18 @@ def clean_all_links():
 
 
 def make_all_links():
-	dotfiles_dir = os.path.dirname(os.path.realpath(__file__))
-
 	for file in files:
 		if not exists(file):
 			make_link(file)
 		else:
 			print('Skipping {0}...'.format(file))
+
+
+def git_config():
+	ignore_file = os.path.join(dotfiles_dir, 'gitignore_global')
+	subprocess.call(['git', 'config', '--global', 'user.name', '"Nate Mara"'])
+	subprocess.call(['git', 'config', '--global', 'user.email', '"natemara@gmail.com"'])
+	subprocess.call(['git', 'config', '--global', 'core.excludesfile', ignore_file])
 
 
 def dotfile_path(file):
