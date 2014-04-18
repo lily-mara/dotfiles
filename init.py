@@ -39,6 +39,10 @@ def print_tasks():
 
 def parse_for_task():
 	arglist = sys.argv[1:]
+	for i in arglist:
+		if i not in tasks.keys():
+			print('invalid command-line argument')
+			sys.exit(0)
 	if 'link' in arglist:
 		make_all_links()
 		return
