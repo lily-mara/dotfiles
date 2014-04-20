@@ -8,7 +8,8 @@ files = [
 		'aliases',
 		'bashrc',
 		'tmux.conf',
-		'conkyrc'
+		'conkyrc',
+		'zshrc'
 ]
 
 tasks = {
