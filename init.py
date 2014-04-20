@@ -9,7 +9,8 @@ files = [
 		'bashrc',
 		'tmux.conf',
 		'conkyrc',
-		'zshrc'
+		'zshrc',
+		'zpreztorc'
 ]
 
 tasks = {
