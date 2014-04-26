@@ -10,6 +10,7 @@ files = [
 		'tmux.conf',
 		'conkyrc',
 		'zshrc',
+		'gitconfig',
 		'zpreztorc'
 ]
 
@@ -66,8 +67,8 @@ def parse_for_task():
 		git_config()
 		return
 	if 'all' in arglist:
-		git_config()
 		make_all_links()
+		git_config()
 		git_vim()
 		return
 	make_all_links()
