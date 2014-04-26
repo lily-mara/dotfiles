@@ -114,7 +114,7 @@ def make_all_links():
 
 def git_config():
 	ignore_file = os.path.join(dotfiles_dir, 'gitignore_global')
-	ignore_file = os.path.join(dotfiles_dir, 'gitconfig')
+	config_file = os.path.join(dotfiles_dir, 'gitconfig')
 	subprocess.call(['git', 'config', '--global', 'core.excludesfile', ignore_file])
 	subprocess.call(['git', 'config', '--global', 'include.path', config_file])
 
