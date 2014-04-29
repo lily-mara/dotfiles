@@ -66,8 +66,8 @@ def parse_for_task():
 		git_config()
 		return
 	if 'all' in arglist:
-		git_config()
 		make_all_links()
+		git_config()
 		git_vim()
 		return
 	make_all_links()
@@ -114,9 +114,9 @@ def make_all_links():
 
 def git_config():
 	ignore_file = os.path.join(dotfiles_dir, 'gitignore_global')
-	subprocess.call(['git', 'config', '--global', 'user.name', '"Nate Mara"'])
-	subprocess.call(['git', 'config', '--global', 'user.email', '"natemara@gmail.com"'])
+	config_file = os.path.join(dotfiles_dir, 'gitconfig')
 	subprocess.call(['git', 'config', '--global', 'core.excludesfile', ignore_file])
+	subprocess.call(['git', 'config', '--global', 'include.path', config_file])
 
 
 def dotfile_path(file):
