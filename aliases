@@ -1,4 +1,4 @@
-DOTFILES=~/.dotfiles
+export DOTFILES=~/.dotfiles
 
 #VIM!
 alias vim='vim -X'
