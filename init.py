@@ -5,22 +5,22 @@ import subprocess
 import shutil
 
 files = [
-		'aliases',
-		'bashrc',
-		'tmux.conf',
-		'conkyrc',
-		'zshrc',
-		'zpreztorc'
+	'aliases',
+	'bashrc',
+	'tmux.conf',
+	'conkyrc',
+	'zshrc',
+	'zpreztorc'
 ]
 
 tasks = {
-		'link': 'create symlinks for dotfiles in this folder',
-		'clean': 'remove symlinks for dotfiles in this folder',
-		'relink': 'remove and then create symlinks for files in this folder',
-		'vim': 'download and link vim config from github',
-		'git_config': 'setup the global git configuration (name, email, ignore)',
-		'all': 'do all of the tasks for setting up a new computer, in order'
-		}
+	'link': 'create symlinks for dotfiles in this folder',
+	'clean': 'remove symlinks for dotfiles in this folder',
+	'relink': 'remove and then create symlinks for files in this folder',
+	'vim': 'download and link vim config from github',
+	'git_config': 'setup the global git configuration (name, email, ignore)',
+	'all': 'do all of the tasks for setting up a new computer, in order'
+}
 
 dotfiles_dir = os.path.dirname(os.path.realpath(__file__))
 
