@@ -14,6 +14,10 @@ if [[ -s "${ZDOTDIR:-$HOME}/.aliases" ]]; then
   source "${ZDOTDIR:-$HOME}/.aliases"
 fi
 
+if [[ -s "${ZDOTDIR:-$HOME}/.dotfiles/zsh/git-flow-completion.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.dotfiles/zsh/git-flow-completion.zsh"
+fi
+
 # Customize to your needs...
 
 echo -ne '\e%G\e[?47h\e%G\e[?47l'
