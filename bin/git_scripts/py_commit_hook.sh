@@ -6,4 +6,6 @@ if [ -n "$FILES" ]; then
 	flake8 --ignore=W191 $FILES
 fi
 
-./run_tests.py
+if [ -e "run_tests.py"]; then
+	./run_tests.py
+fi
