@@ -28,8 +28,9 @@ dotfiles_dir = os.path.dirname(os.path.realpath(__file__))
 def main():
 	if len(sys.argv) == 1:
 		print_tasks()
+		return 0
 	else:
-		parse_for_task()
+		return parse_for_task()
 
 
 def print_tasks():
@@ -48,28 +49,28 @@ def parse_for_task():
 	for i in arglist:
 		if i not in tasks.keys():
 			print('invalid command-line argument')
-			sys.exit(0)
+			return 1
 	if 'link' in arglist:
 		make_all_links()
-		return
+		return 0
 	if 'clean' in arglist:
 		clean_all_links()
-		return
+		return 0
 	if 'relink' in arglist:
 		clean_all_links()
 		make_all_links()
-		return
+		return 0
 	if 'vim' in arglist:
 		git_vim()
-		return
+		return 0
 	if 'git_config' in arglist:
 		git_config()
-		return
+		return 0
 	if 'all' in arglist:
 		make_all_links()
 		git_config()
 		git_vim()
-		return
+		return 0
 	make_all_links()
 
 
@@ -142,4 +143,4 @@ def make_link(file):
 
 
 if __name__ == '__main__':
-	main()
+	sys.exit(main())
