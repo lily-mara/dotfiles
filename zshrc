@@ -29,3 +29,5 @@ then
 	eval `ssh-agent -s`
 	ssh-add
 fi
+
+export FLAKE8_IGNORE="W191"
