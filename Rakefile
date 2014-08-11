@@ -38,7 +38,7 @@ task :install do
   end
 end
 
-task :uninstall do
+task :clean do
 
   Dir.glob('*.symlink').each do |linkable|
 
