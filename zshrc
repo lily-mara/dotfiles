@@ -24,10 +24,4 @@ echo -ne '\e%G\e[?47h\e%G\e[?47l'
 export TERM=screen-256color
 zstyle ':prezto:module:ssh:load' identities 'id_rsa' 'id_dsa' 'id_github'
 
-if [[ `hostname` == 'reef' ]]
-then
-	eval `ssh-agent -s`
-	ssh-add
-fi
-
 export FLAKE8_IGNORE="W191"
