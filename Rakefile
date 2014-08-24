@@ -10,6 +10,12 @@ desc "Hook our dotfiles into system-standard positions."
 task :install do
   # make_links
   git_config
+  prezto_install
+end
+
+def prezto_install
+  repo = 'git@github.com:natemara/prezto.git' 
+  sh "git clone #{repo} --recursive \"${ZDOTDIR:-$HOME}/.zprezto\""
 end
 
 def git_config
