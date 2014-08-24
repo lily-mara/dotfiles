@@ -4,8 +4,22 @@
 
 require 'rake'
 
+dotfiles_dir = File.expand_path(File.dirname(__FILE__))
+
 desc "Hook our dotfiles into system-standard positions."
 task :install do
+  # make_links
+  git_config
+end
+
+def git_config
+  ignore_file = File.join dotfiles_dir 'gitignore_global'
+  config_file = File.join dotfiles_dir 'gitconfig'
+  sh "git config --global core.excludesfile #{ignore_file}"
+  sh "git config --global include.path #{config_file}"
+end
+
+def make_links
   linkables = Dir.glob('**{.symlink}')
 
   skip_all = false
