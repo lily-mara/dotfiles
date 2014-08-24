@@ -13,9 +13,16 @@ task :install do
   prezto_install
 end
 
+def emacs_config
+  repo = "git@github.com:natemara/.emacs.d.git"
+  dir = File.expand_path('.emacs.d', '~')
+  sh "git clone #{repo} #{dir}"
+end
+
 def prezto_install
-  repo = 'git@github.com:natemara/prezto.git' 
-  sh "git clone #{repo} --recursive \"${ZDOTDIR:-$HOME}/.zprezto\""
+  repo = 'git@github.com:natemara/prezto.git'
+  dir = File.expand_path('.zprezto', '~')
+  sh "git clone #{repo} --recursive #{dir}"
 end
 
 def git_config
