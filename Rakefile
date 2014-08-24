@@ -16,7 +16,9 @@ end
 def emacs_config
   repo = "git@github.com:natemara/.emacs.d.git"
   dir = File.expand_path('.emacs.d', '~')
+  init_file = File.expand_path('bootstrap.py', '~/.emacs.d')
   sh "git clone #{repo} #{dir}"
+  sh "python #{init_file}"
 end
 
 def prezto_install
