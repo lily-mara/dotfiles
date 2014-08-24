@@ -8,9 +8,10 @@ dotfiles_dir = File.expand_path(File.dirname(__FILE__))
 
 desc "Hook our dotfiles into system-standard positions."
 task :install do
-  # make_links
+  make_links
   git_config
   prezto_install
+  emacs_config
 end
 
 def emacs_config
