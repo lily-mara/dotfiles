@@ -4,8 +4,38 @@
 
 require 'rake'
 
+dotfiles_dir = File.expand_path(File.dirname(__FILE__))
+
 desc "Hook our dotfiles into system-standard positions."
 task :install do
+  make_links
+  git_config
+  prezto_install
+  emacs_config
+end
+
+def emacs_config
+  repo = "git@github.com:natemara/.emacs.d.git"
+  dir = File.expand_path('.emacs.d', '~')
+  init_file = File.expand_path('bootstrap.py', '~/.emacs.d')
+  sh "git clone #{repo} #{dir}"
+  sh "python #{init_file}"
+end
+
+def prezto_install
+  repo = 'git@github.com:natemara/prezto.git'
+  dir = File.expand_path('.zprezto', '~')
+  sh "git clone #{repo} --recursive #{dir}"
+end
+
+def git_config
+  ignore_file = File.join dotfiles_dir 'gitignore_global'
+  config_file = File.join dotfiles_dir 'gitconfig'
+  sh "git config --global core.excludesfile #{ignore_file}"
+  sh "git config --global include.path #{config_file}"
+end
+
+def make_links
   linkables = Dir.glob('**{.symlink}')
 
   skip_all = false
