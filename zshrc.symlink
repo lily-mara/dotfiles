@@ -33,5 +33,7 @@ fi
 export FLAKE8_IGNORE="W191"
 export EDITOR="/usr/bin/vim"
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+export PATH="/usr/local/heroku/bin:/home/nate/bin:$PATH"
+
+# added by travis gem
+[ -f /home/nate/.travis/travis.sh ] && source /home/nate/.travis/travis.sh
