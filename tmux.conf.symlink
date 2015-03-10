@@ -1,3 +1,8 @@
 set-option -g status on
 set-option -g status-utf8 on
 set-option -g status-justify "centre"
+
+set-window-option -g mode-keys vi
+
+bind-key -t vi-copy 'v' begin-selection
+bind-key -t vi-copy 'y' copy-selection
