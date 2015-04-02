@@ -43,3 +43,7 @@ Thumbs.db
 # Tags file #
 #############
 tags
+
+# Editor garbage file #
+#######################
+*.un~
