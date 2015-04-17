@@ -19,12 +19,15 @@ export FLAKE8_IGNORE="W191"
 export EDITOR="/usr/bin/vim"
 export PATH="/usr/local/heroku/bin:/home/nate/.bin:/home/nate/.cabal/bin:$PATH"
 [ -f /home/nate/.travis/travis.sh ] && source /home/nate/.travis/travis.sh
+
+which exa >> /dev/null
+if [[ $? -eq "0" ]]; then
+	LISTER=$(which exa)
+else
+	LISTER=$(which ls)
+fi
+
 function listing() {
-	which exa >> /dev/null
-	if [[ $? -eq "0" ]]; then
-		exa $*
-	else
-		ls $*
-	fi
+	$LISTER $*
 }
 alias ls=listing
