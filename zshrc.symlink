@@ -22,12 +22,7 @@ export PATH="/usr/local/heroku/bin:/home/nate/.bin:/home/nate/.cabal/bin:$PATH"
 
 which exa >> /dev/null
 if [[ $? -eq "0" ]]; then
-	LISTER=$(which exa)
+	alias ls=$(which exa)
 else
-	LISTER=$(which ls)
+	alias ls='ls --group-directories-first --color=auto'
 fi
-
-function listing() {
-	$LISTER $*
-}
-alias ls=listing
