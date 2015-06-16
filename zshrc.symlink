@@ -15,9 +15,11 @@ if [[ -s "/etc/bash_completion.d/pycompletion.sh" ]]; then
 	bashcompinit
 	source /etc/bash_completion.d/pycompletion.sh
 fi
+
+export GOPATH=$HOME/gocode
 export FLAKE8_IGNORE="W191"
 export EDITOR="/usr/bin/vim"
-export PATH="/usr/local/heroku/bin:/home/nate/.bin:/home/nate/.cabal/bin:$PATH"
+export PATH="/usr/local/heroku/bin:/home/nate/.bin:/home/nate/.cabal/bin:$GOPATH/bin:$PATH"
 [ -f /home/nate/.travis/travis.sh ] && source /home/nate/.travis/travis.sh
 
 which exa >> /dev/null
