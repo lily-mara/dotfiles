@@ -38,4 +38,4 @@
 
 [core]
 	excludesfile = /home/nate/.dotfiles/gitignore_global
-	editor = nvim
+	editor = /usr/bin/vim
