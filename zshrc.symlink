@@ -28,3 +28,5 @@ if [[ $? -eq "0" ]]; then
 else
 	alias ls='ls --group-directories-first --color=auto'
 fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
