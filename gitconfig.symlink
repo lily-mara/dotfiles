@@ -39,3 +39,5 @@
 [core]
 	excludesfile = /home/nate/.dotfiles/gitignore_global
 	editor = /usr/bin/vim
+[color]
+	ui = auto
