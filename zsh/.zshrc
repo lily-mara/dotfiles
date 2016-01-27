@@ -1,11 +1,11 @@
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
-if [[ -s "${ZDOTDIR:-$HOME}/.aliases" ]]; then
-  source "${ZDOTDIR:-$HOME}/.aliases"
+if [[ -s "${ZDOTDIR:-$HOME}/.zsh-aliases" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zsh-aliases"
 fi
-if [[ -s "${ZDOTDIR:-$HOME}/.dotfiles/zsh/git-flow-completion.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.dotfiles/zsh/git-flow-completion.zsh"
+if [[ -s "${ZDOTDIR:-$HOME}/.zsh/git-flow-completion.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zsh/git-flow-completion.zsh"
 fi
 echo -ne '\e%G\e[?47h\e%G\e[?47l'
 export TERM=xterm-256color

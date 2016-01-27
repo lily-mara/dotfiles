@@ -37,7 +37,7 @@
 	total = "!f() { git log $@ --numstat | perl -ne '$i+=$1 and $d+=$2 if /^(\\d+)\\s+(\\d+)/; END { print \"$i insertion(s), $d deletion(s)\n\"}'; }; f"
 
 [core]
-	excludesfile = /home/nate/.dotfiles/gitignore_global
+	excludesfile = ~/.gitignore-global
 	editor = /usr/bin/vim
 [color]
 	ui = auto
