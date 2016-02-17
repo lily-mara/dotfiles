@@ -1,0 +1,28 @@
+export DOTFILES=~/.dotfiles
+
+#VIM!
+alias vim='vim -X'
+alias vi='vim -X'
+
+#this file
+if [ -n "$ZSH_VERSION" ]; then
+	alias reloada='. ~/.zshrc'
+else
+	alias reloada='. ~/.bashrc'
+fi
+
+#system functions
+alias reboot='sudo shutdown -r now'
+
+#tmux
+alias tls='tmux list-sessions'
+alias tat='tmux attach -t'
+alias tn='tmux new -s'
+alias tk='tmux kill-session -t'
+
+#misc
+alias pep8='pep8 --ignore=W191'
+alias flake8='flake8 --ignore=W191'
+alias clip='xclip -selection clipboard'
+alias screen_record='ffmpeg -f x11grab -r 30 -s 1366x768 -i :0.0+0,0 $1'
+alias public-key='clip < ~/.ssh/id_rsa.pub'

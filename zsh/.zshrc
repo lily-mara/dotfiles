@@ -25,10 +25,11 @@ export CARGO_BIN=$CARGO_STABLE_BIN:$CARGO_BETA_BIN:$CARGO_NIGHTLY_BIN
 export GOPATH=$HOME/gocode
 export GO_BIN=$GOPATH/bin
 export CABAL_BIN=$HOME/.cabal/bin
+export CONDA_BIN=$HOME/.programs/anaconda3/bin
 
 export FLAKE8_IGNORE="W191"
 export EDITOR="/usr/bin/vim"
-export PATH="/usr/local/heroku/bin:$HOME/.bin:$CABAL_BIN:$GO_BIN:$CARGO_BIN:$PATH"
+export PATH="/usr/local/heroku/bin:$HOME/.bin:$CABAL_BIN:$GO_BIN:$CARGO_BIN:$CONDA_BIN:$PATH"
 [ -f /home/nate/.travis/travis.sh ] && source /home/nate/.travis/travis.sh
 
 which exa >> /dev/null

@@ -176,3 +176,6 @@ export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 [ -f /home/nate/.travis/travis.sh ] && source /home/nate/.travis/travis.sh
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# added by Anaconda3 2.5.0 installer
+export PATH="/home/nate/.programs/anaconda3/bin:$PATH"
