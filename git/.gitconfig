@@ -39,5 +39,6 @@
 [core]
 	excludesfile = ~/.gitignore-global
 	editor = /usr/bin/vim
+	autocrlf = input
 [color]
 	ui = auto

@@ -16,6 +16,7 @@ if [[ -s "/etc/bash_completion.d/pycompletion.sh" ]]; then
 	source /etc/bash_completion.d/pycompletion.sh
 fi
 
+export GOROOT=$HOME/.programs/go
 export MULTIRUST=$HOME/.multirust/toolchains
 export CARGO_STABLE_BIN=$MULTIRUST/stable/cargo/bin
 export CARGO_BETA_BIN=$MULTIRUST/beta/cargo/bin
@@ -40,3 +41,6 @@ else
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
