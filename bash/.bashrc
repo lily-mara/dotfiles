@@ -1,3 +1,5 @@
+source $HOME/.profile
+
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -98,8 +100,8 @@ fi
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-if [ -f ~/.aliases ]; then
-    . ~/.aliases
+if [ -f ~/.bash-aliases ]; then
+    . ~/.bash-aliases
 fi
 
 # Note: ~/.ssh/environment should not be used, as it
@@ -177,5 +179,12 @@ export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-# added by Anaconda3 2.5.0 installer
-export PATH="/home/nate/.programs/anaconda3/bin:$PATH"
+which exa >> /dev/null
+if [[ $? -eq "0" ]] ; then
+	alias ls=$(which exa)
+fi
+
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+alias time="gtime -f '%Us user %Ss system %P cpu %Es total'"
