@@ -20,6 +20,14 @@ alias tat='tmux attach -t'
 alias tn='tmux new -s'
 alias tk='tmux kill-session -t'
 
+#git
+alias gt='git status'
+alias gp='git push'
+alias gcm='git commit -m'
+alias gu='git pull'
+alias ga='git add'
+alias gam='git commit --amend'
+
 #misc
 alias pep8='pep8 --ignore=W191'
 alias flake8='flake8 --ignore=W191'
