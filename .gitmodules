@@ -1,3 +1,0 @@
-[submodule "unstow-me/.tmux/plugins/tpm"]
-	path = unstow-me/.tmux/plugins/tpm
-	url = https://github.com/tmux-plugins/tpm
