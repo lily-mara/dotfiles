@@ -34,3 +34,5 @@ alias flake8='flake8 --ignore=W191'
 alias clip='xclip -selection clipboard'
 alias screen_record='ffmpeg -f x11grab -r 30 -s 1366x768 -i :0.0+0,0 $1'
 alias public-key='clip < ~/.ssh/id_rsa.pub'
+
+export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src/"
