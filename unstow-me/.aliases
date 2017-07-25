@@ -7,8 +7,10 @@ alias vi='vim -X'
 #this file
 if [ -n "$ZSH_VERSION" ]; then
 	alias reloada='. ~/.zshrc'
+	export shell='/bin/zsh'
 else
 	alias reloada='. ~/.bashrc'
+	export shell='/bin/bash'
 fi
 
 #system functions
