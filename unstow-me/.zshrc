@@ -12,15 +12,11 @@ antigen bundle command-not-found
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle lukechilds/zsh-nvm
 
-source ~/.proxyrc
-
-export PATH="/users/nm46057/.anaconda3/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.profile ] && source ~/.profile
 
-source ~/.cargo/env
 source ~/.aliases
-
 alias ls=exa
 
 antigen apply

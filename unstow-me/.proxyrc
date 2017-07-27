@@ -1,0 +1,46 @@
+# vim: set filetype=sh
+
+if [ -z "$proxyrc" ]; then
+	readonly proxyrc=1
+	readonly old_ps1=${PS1}
+fi
+
+function proxy() {
+	if [ $1 = 'on' ]; then
+		proxy=http://${proxy_host}:${proxy_port}
+
+		export http_proxy=${proxy}
+		export HTTP_PROXY=${proxy}
+		export https_proxy=${proxy}
+		export HTTPS_PROXY=${proxy}
+
+		cat - ~/.gradle/gradle.properties > ~/.gradle/gradle.properties.new <<EOF
+systemProp.proxySet="true"
+
+systemProp.http.proxyHost=${proxy_host}
+systemProp.http.proxyPort=${proxy_port}
+systemProp.http.nonProxyHosts=${no_proxy}
+
+systemProp.https.proxyHost=${proxy_host}
+systemProp.https.proxyPort=${proxy_port}
+systemProp.https.nonProxyHosts=${no_proxy}
+EOF
+
+		mv ~/.gradle/gradle.properties.new ~/.gradle/gradle.properties
+
+		unset proxy_pass
+
+		PS1="
+(proxy on)${old_ps1}"
+	else
+		unset http_proxy
+		unset https_proxy
+		unset HTTP_PROXY
+		unset HTTPS_PROXY
+
+		awk '{ if ($0 !~ /[Pp]roxy/) print $0 }' ~/.gradle/gradle.properties > \
+			~/.gradle/gradle.properties
+
+		PS1=$old_ps1
+	fi
+}
