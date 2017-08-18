@@ -1,22 +1,29 @@
-source $HOME/.dotfiles/dont-unstow-me/antigen.zsh
+source "${HOME}/.dotfiles/dont-unstow-me/zgen/zgen.zsh"
 
-antigen use oh-my-zsh
+if ! zgen saved; then
+    zgen oh-my-zsh
 
-antigen theme avit
+	zgen oh-my-zsh plugins/z
+	zgen oh-my-zsh plugins/git
+	zgen oh-my-zsh plugins/pip
+	zgen oh-my-zsh plugins/sudo
+	zgen oh-my-zsh plugins/ssh-agent
 
-antigen bundle git
-antigen bundle ssh-agent
-antigen bundle z
-antigen bundle pip
-antigen bundle command-not-found
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle lukechilds/zsh-nvm
+	zgen loadall <<EOPLUGINS
+		zsh-users/zsh-history-substring-search
+		zsh-users/zsh-syntax-highlighting
+		zsh-users/zsh-autosuggestions
+		zsh-users/zsh-completions
+		natemara/af-magic-nate af-magic
+EOPLUGINS
 
+    zgen save
+fi
+
+bindkey '^ ' autosuggest-accept
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.profile ] && source ~/.profile
 
 source ~/.aliases
 alias ls=exa
-
-antigen apply
