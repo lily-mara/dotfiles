@@ -1,4 +1,10 @@
-export DOTFILES=~/.dotfiles
+function command_is_defined() {
+	if ! _command_defined="$(type -p "$1")" || [ -z "$1" ]; then
+		return 1
+	else
+		return 0
+	fi
+}
 
 #VIM!
 alias vim='vim -X'
@@ -37,4 +43,6 @@ alias clip='xclip -selection clipboard'
 alias screen_record='ffmpeg -f x11grab -r 30 -s 1366x768 -i :0.0+0,0 $1'
 alias public-key='clip < ~/.ssh/id_rsa.pub'
 
-export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src/"
+command_is_defined rustc && export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src/"
+
+command_is_defined exa && alias ls=exa

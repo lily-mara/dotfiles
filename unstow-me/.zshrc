@@ -29,4 +29,3 @@ bindkey '^ ' autosuggest-accept
 [ -f ~/.profile ] && source ~/.profile
 
 source ~/.aliases
-alias ls=exa
