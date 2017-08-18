@@ -15,11 +15,14 @@ if ! zgen saved; then
 		zsh-users/zsh-autosuggestions
 		zsh-users/zsh-completions
 		natemara/af-magic-nate af-magic
+		djui/alias-tips
 EOPLUGINS
 
     zgen save
 fi
 
+# Ctrl-;, as configured by iTerm settings.
+bindkey '^[[50~' autosuggest-accept
 bindkey '^ ' autosuggest-accept
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
