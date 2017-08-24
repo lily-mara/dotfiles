@@ -8,6 +8,9 @@ if ! zgen saved; then
 	zgen oh-my-zsh plugins/pip
 	zgen oh-my-zsh plugins/sudo
 	zgen oh-my-zsh plugins/ssh-agent
+	zgen oh-my-zsh plugins/rust
+	zgen oh-my-zsh plugins/cargo
+	zgen oh-my-zsh plugins/nvm
 
 	zgen loadall <<EOPLUGINS
 		zsh-users/zsh-history-substring-search
