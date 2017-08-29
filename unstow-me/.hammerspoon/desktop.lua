@@ -1,20 +1,20 @@
-local API_TOKEN = "e596b359e64387e03b0028ffff1c30c48e223031a288f2b52af818f6b2480643"
+local variables = require('variables')
 
 local function buildPhotoPath(photoId)
-	return os.getenv("HOME") .. "/.wallpapers/" .. photoId .. ".jpg"
+	return os.getenv('HOME') .. '/.wallpapers/' .. photoId .. '.jpg'
 end
 
 local function buildPhotoUrl(photoId)
-	return "file://" .. buildPhotoPath(photoId)
+	return 'file://' .. buildPhotoPath(photoId)
 end
 
 function setRandomBackground()
 	function photoCallback(status, body, respHeaders)
 		if status == 200 then
 			photoPath = buildPhotoPath(photoId)
-			file = io.open(photoPath, "wb")
+			file = io.open(photoPath, 'wb')
 			if file == nil then
-				hs.notify.show("Unsplash Error", "Failed to open image file for writing", "")
+				hs.notify.show('Unsplash Error', 'Failed to open image file for writing', '')
 			else
 				file:write(body)
 				file:close()
@@ -25,26 +25,26 @@ function setRandomBackground()
 					screen:desktopImageURL(photoUrl)
 				end
 				hs.notify.show(
-					"Unsplash",
-					"Set new background image",
-					"On " .. #screens .. " screens - " .. remainingRequests .. " requests remaining this hour"
+					'Unsplash',
+					'Set new background image',
+					'On ' .. #screens .. ' screens - ' .. remainingRequests .. ' requests remaining this hour'
 				)
 			end
 		else
-			hs.notify.show("Unsplash Error", "Got " .. status .. " back from unsplash", "")
+			hs.notify.show('Unsplash Error', 'Got ' .. status .. ' back from unsplash', '')
 		end
 	end
 
 	function photoDataCallback(status, body, respHeaders)
 		if status == 200 then
 			json = hs.json.decode(body)
-			photo = json["urls"]["full"]
-			photoId = json["id"]
-			remainingRequests = respHeaders["X-Ratelimit-Remaining"]
+			photo = json['urls']['full']
+			photoId = json['id']
+			remainingRequests = respHeaders['X-Ratelimit-Remaining']
 
 			hs.http.asyncGet(photo, {}, photoCallback)
 		else
-			hs.notify.show("Unsplash Error", "Got " .. status .. " back from unsplash", "")
+			hs.notify.show('Unsplash Error', 'Got ' .. status .. ' back from unsplash', '')
 		end
 	end
 
@@ -52,10 +52,14 @@ function setRandomBackground()
 	remainingRequests = nil
 
 	headers = {}
-	headers["Authorization"] = "Client-ID " .. API_TOKEN
+	headers['Authorization'] = 'Client-ID ' .. variables.UNSPLASH_APPLICATION_ID
 
-	hs.http.asyncGet("https://api.unsplash.com/photos/random", headers, photoDataCallback)
+	hs.http.asyncGet(
+		'https://api.unsplash.com/photos/random?orientation=landscape&featured=true',
+		headers,
+		photoDataCallback
+	)
 end
 
-hs.hotkey.bind({"cmd","alt","shift"}, "D", setRandomBackground)
+hs.hotkey.bind({'cmd','alt','shift'}, 'D', setRandomBackground)
 hs.timer.doEvery(hs.timer.hours(1), setRandomBackground)
