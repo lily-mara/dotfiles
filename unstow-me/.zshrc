@@ -17,6 +17,7 @@ if ! zgen saved; then
 		zsh-users/zsh-syntax-highlighting
 		zsh-users/zsh-autosuggestions
 		zsh-users/zsh-completions
+		esc/conda-zsh-completion
 		natemara/af-magic-nate af-magic
 		djui/alias-tips
 EOPLUGINS
