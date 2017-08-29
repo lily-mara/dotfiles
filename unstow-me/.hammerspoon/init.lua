@@ -1,5 +1,4 @@
 require("desktop")
-require("proxy")
 
 function reloadConfig()
 	hs.reload()
