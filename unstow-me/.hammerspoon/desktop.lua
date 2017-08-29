@@ -1,7 +1,10 @@
 local variables = require('variables')
 
+local WALLPAPER_DIR = os.getenv("HOME") .. '/.wallpapers/'
+local LOG = hs.logger.new('desktop')
+
 local function buildPhotoPath(photoId)
-	return os.getenv('HOME') .. '/.wallpapers/' .. photoId .. '.jpg'
+	return WALLPAPER_DIR .. photoId .. '.jpg'
 end
 
 local function buildPhotoUrl(photoId)
@@ -61,5 +64,24 @@ function setRandomBackground()
 	)
 end
 
+local function deletePicturesCallback(exitCode, stdout, stderr)
+	LOG:d(
+		'{"message": "delete-pictures", "exitCode": %d, "stdout": "%s", "stderr": "%s"}',
+		exitCode,
+		stdout,
+		stderr
+	)
+end
+
+function deleteDailyPictures()
+	task = hs.task.new(
+		'/usr/bin/find',
+		deletePicturesCallback,
+		function(_, _, _) return false end,
+		{ WALLPAPER_DIR, '-atime', '+24h', '-delete', '-print' }
+	)
+end
+
 hs.hotkey.bind({'cmd','alt','shift'}, 'D', setRandomBackground)
 hs.timer.doEvery(hs.timer.hours(1), setRandomBackground)
+hs.timer.doEvery(hs.timer.hours(24), deleteDailyPictures)
