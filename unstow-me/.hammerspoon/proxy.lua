@@ -29,11 +29,9 @@ function setLocationForSSID()
 
 	if ssid == "wireless1" then
 		config:setLocation('Office')
-		hs.notify.show('Network', 'Configured for office proxy', '')
 		restartSquid()
 	else
 		config:setLocation('Home')
-		hs.notify.show('Network', 'Configured for non-proxy', '')
 	end
 end
 
