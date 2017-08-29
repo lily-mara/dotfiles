@@ -12,17 +12,6 @@ local function nopReturnsFalse(_, _, _)
 	return false
 end
 
-local function findLocationForName(name, config)
-	locations = config:locations()
-
-	for key, value in pairs(locations) do
-		if value == 'Office' then
-			return key
-		end
-	end
-	return nil
-end
-
 function restartSquid()
 	hs.notify.show('Proxy', 'Restarting squid server', '')
 	task = hs.task.new(
@@ -36,16 +25,14 @@ end
 
 function setLocationForSSID()
 	config = hs.network.configuration.open()
-	officeUuid = findLocationForName('Office', config)
-	homeUuid = findLocationForName('Home', config)
 	ssid = hs.wifi.currentNetwork()
 
 	if ssid == "wireless1" then
-		config:setLocation(officeUuid)
+		config:setLocation('Office')
 		hs.notify.show('Network', 'Configured for office proxy', '')
 		restartSquid()
 	else
-		config:setLocation(homeUuid)
+		config:setLocation('Home')
 		hs.notify.show('Network', 'Configured for non-proxy', '')
 	end
 end
