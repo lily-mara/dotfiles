@@ -1,3 +1,5 @@
+local util = require('util')
+
 local log = hs.logger.new('proxy', 'debug')
 
 local function restartSquidCallback(exitCode, stdout, stderr)
@@ -8,8 +10,18 @@ local function restartSquidCallback(exitCode, stdout, stderr)
 	end
 end
 
-local function nopReturnsFalse(_, _, _)
-	return false
+local function squidOutputStreamCallback(task, stdout, stderr)
+	out = util.strip(stdout)
+	err = util.strip(stderr)
+	if string.len(out) > 0 then
+		log.i(out)
+	end
+
+	if string.len(err) > 0 then
+		log.e(err)
+	end
+
+	return true
 end
 
 function restartSquid()
@@ -17,7 +29,7 @@ function restartSquid()
 	task = hs.task.new(
 		'/usr/local/bin/brew',
 		restartSquidCallback,
-		nopReturnsFalse,
+		squidOutputStreamCallback,
 		{ 'services', 'restart', 'squid' }
 	)
 	task:start()
