@@ -1,54 +1,47 @@
 local util = require('util')
+local AnyBar = require('anybar')
+
+local proxy = {}
 
 local log = hs.logger.new('proxy', 'debug')
+proxy.anyBarConnection = AnyBar:new(6438)
 
 local function restartSquidCallback(exitCode, stdout, stderr)
 	if exitCode == 0 then
-		hs.notify.show('Proxy', 'Restarted squid server', '')
+		proxy.anyBarConnection:setColor('green')
 	else
-		hs.notify.show('Proxy', 'Failed to restart squid', '')
+		proxy.anyBarConnection:setColor('exclamation')
 	end
 end
 
-local function squidOutputStreamCallback(task, stdout, stderr)
-	out = util.strip(stdout)
-	err = util.strip(stderr)
-	if string.len(out) > 0 then
-		log.i(out)
-	end
-
-	if string.len(err) > 0 then
-		log.e(err)
-	end
-
-	return true
-end
-
-function restartSquid()
-	hs.notify.show('Proxy', 'Restarting squid server', '')
+function proxy.restartSquid()
+	proxy.anyBarConnection:setColor('orange')
 	task = hs.task.new(
 		'/usr/local/bin/brew',
 		restartSquidCallback,
-		squidOutputStreamCallback,
+		util.buildOutputStreamLogger(log),
 		{ 'services', 'restart', 'squid' }
 	)
 	task:start()
 end
 
-function setLocationForSSID()
+function proxy.setLocationForSSID()
 	config = hs.network.configuration.open()
 	ssid = hs.wifi.currentNetwork()
 
 	if ssid == "wireless1" then
 		config:setLocation('Office')
-		restartSquid()
+		proxy.restartSquid()
 	else
 		config:setLocation('Home')
+		proxy.anyBarConnection:setColor('white')
 	end
 end
 
 hs.wifi.watcher.new(function(_, _, _)
-	setLocationForSSID()
+	proxy.setLocationForSSID()
 end):start()
 
-hs.hotkey.bind({'cmd','alt','shift'}, 'U', restartSquid)
+proxy.setLocationForSSID()
+
+return proxy
