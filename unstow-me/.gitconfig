@@ -1,6 +1,6 @@
 [user]
 	name = Nate Mara
-	email = natemara@gmail.com
+	email = nate.mara@kroger.com
 
 [push]
 	default = simple
@@ -38,10 +38,40 @@
 	# Displays the total number of changes by john@example.com.
 
 	total = "!f() { git log $@ --numstat | perl -ne '$i+=$1 and $d+=$2 if /^(\\d+)\\s+(\\d+)/; END { print \"$i insertion(s), $d deletion(s)\n\"}'; }; f"
+	diff = "diff --dir-diff"
 
 [core]
-	excludesfile = ~/.gitignore-global
+	excludesfile = /Users/nm46057/.gitignore_global
 	editor = /usr/bin/vim
 	autocrlf = input
+	pager = diff-so-fancy | less --tabs=4 -RFX
 [color]
-	ui = auto
+	ui = true
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[diff]
+    tool = meld
+[difftool "meld"]
+    cmd = meld "$LOCAL" "$REMOTE"
+[difftool]
+    prompt = false
+[commit]
+	template = /Users/nm46057/.stCommitMsg
+[rebase]
+	autoStash = true
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = yellow
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse

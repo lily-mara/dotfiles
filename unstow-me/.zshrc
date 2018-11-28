@@ -1,12 +1,14 @@
+zstyle :omz:plugins:ssh-agent agent-forwarding on
+zstyle :omz:plugins:ssh-agent identities id_rsa
+
 source "${HOME}/.dotfiles/dont-unstow-me/zgen/zgen.zsh"
 
 if ! zgen saved; then
-    zgen oh-my-zsh
+	zgen oh-my-zsh
 
 	zgen oh-my-zsh plugins/z
 	zgen oh-my-zsh plugins/git
 	zgen oh-my-zsh plugins/pip
-	zgen oh-my-zsh plugins/sudo
 	zgen oh-my-zsh plugins/ssh-agent
 	zgen oh-my-zsh plugins/rust
 	zgen oh-my-zsh plugins/cargo
@@ -20,9 +22,10 @@ if ! zgen saved; then
 		esc/conda-zsh-completion
 		natemara/af-magic-nate af-magic
 		djui/alias-tips
+		felixr/docker-zsh-completion
 EOPLUGINS
 
-    zgen save
+	zgen save
 fi
 
 # Ctrl-;, as configured by iTerm settings.
@@ -32,4 +35,17 @@ bindkey '^ ' autosuggest-accept
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.profile ] && source ~/.profile
 
+function _cd_search {
+	readonly dir=$(z -l | sort -nr | awk '{ print $2 }' | fzy)
+	if [ ! -z $dir ]; then
+		cd $dir
+	fi
+	zle reset-prompt
+}
+
+zle -N _cd_search
+bindkey '^k' _cd_search
+
 source ~/.aliases
+
+export PATH=/Users/nm46057/.local/bin:$PATH

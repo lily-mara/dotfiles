@@ -8,10 +8,6 @@ root = true
 end_of_line = lf
 insert_final_newline = true
 
-# tab indentation
-[**.py]
-indent_style = tab
-
 # Tab indentation (no size specified)
 [**.js]
 indent_style = tab

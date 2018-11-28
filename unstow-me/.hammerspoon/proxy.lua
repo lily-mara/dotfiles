@@ -6,6 +6,8 @@ local proxy = {}
 local log = hs.logger.new('proxy', 'debug')
 proxy.anyBarConnection = AnyBar:new(6438)
 
+local last_ssid = nil
+
 local function restartSquidCallback(exitCode, stdout, stderr)
 	if exitCode == 0 then
 		proxy.anyBarConnection:setColor('green')
@@ -25,9 +27,8 @@ function proxy.restartSquid()
 	task:start()
 end
 
-function proxy.setLocationForSSID()
+function proxy.setLocationForSSID(ssid)
 	config = hs.network.configuration.open()
-	ssid = hs.wifi.currentNetwork()
 
 	if ssid == "wireless1" then
 		config:setLocation('Office')
@@ -38,10 +39,24 @@ function proxy.setLocationForSSID()
 	end
 end
 
+function proxy.setLocationForSSIDIfDifferent()
+	ssid = hs.wifi.currentNetwork()
+	if ssid ~= last_ssid then
+		last_ssid = ssid
+		proxy.setLocationForSSID(ssid)
+	end
+end
+
 hs.wifi.watcher.new(function(_, _, _)
-	proxy.setLocationForSSID()
+	proxy.setLocationForSSIDIfDifferent()
 end):start()
 
-proxy.setLocationForSSID()
+hs.caffeinate.watcher.new(function(event)
+	if event == hs.caffeinate.watcher.screensDidUnlock then
+		proxy.setLocationForSSIDIfDifferent()
+	end
+end):start()
+
+proxy.setLocationForSSIDIfDifferent()
 
 return proxy

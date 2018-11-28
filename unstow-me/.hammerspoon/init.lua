@@ -1,3 +1,3 @@
-require('desktop')
-require('autoreload')
-require('proxy')
+desktop = require('desktop')
+autoreload = require('autoreload')
+--proxy = require('proxy')

@@ -39,10 +39,25 @@ alias gam='git commit --amend'
 #misc
 alias pep8='pep8 --ignore=W191'
 alias flake8='flake8 --ignore=W191'
-alias clip='xclip -selection clipboard'
 alias screen_record='ffmpeg -f x11grab -r 30 -s 1366x768 -i :0.0+0,0 $1'
-alias public-key='clip < ~/.ssh/id_rsa.pub'
 
 command_is_defined rustc && export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src/"
 
 command_is_defined exa && alias ls=exa
+
+command_is_defined pbcopy && alias __copy_x='pbcopy'
+command_is_defined pbpaste && alias __paste_x='pbpaste'
+
+command_is_defined xclip && alias __copy_x='xclip -selection -clipboard -i'
+command_is_defined xclip && alias __paste_x='xclip -selection -clipboard -o'
+
+command_is_defined jq && alias jv='__paste_x | jq . | nvim -c "set ft=json" -c "set fdm=syntax" -'
+
+alias ff-safe='/Applications/Firefox\ Developer\ Edition.app/Contents/MacOS/firefox --safe-mode --new-instance --profile $(mktemp -d)'
+
+alias public-key='__copy_x < ~/.ssh/id_rsa.pub'
+
+alias docker-delete-old='docker rm $(docker ps -aqf "status = exited" -f "status=created")'
+
+alias realpath="python -c 'import os, sys; print(os.path.realpath(sys.argv[1]))'"
+alias localhost.run="ssh -R 80:localhost:$1 ssh.localhost.run"
