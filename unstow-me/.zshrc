@@ -1,5 +1,5 @@
 zstyle :omz:plugins:ssh-agent agent-forwarding on
-zstyle :omz:plugins:ssh-agent identities id_rsa
+zstyle :omz:plugins:ssh-agent identities id_rsa id_gitlab_push
 
 source "${HOME}/.dotfiles/dont-unstow-me/zgen/zgen.zsh"
 
@@ -47,5 +47,13 @@ zle -N _cd_search
 bindkey '^k' _cd_search
 
 source ~/.aliases
+source ~/.clone.zsh
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
 
 export PATH=/Users/nm46057/.local/bin:$PATH
+
+fpath=(~/.zsh-completions $fpath)
+
+[ -f ~/.gcloud-sdk/path.zsh.inc ] && source ~/.gcloud-sdk/path.zsh.inc
+[ -f ~/.gcloud-sdk/completion.zsh.inc ] && source ~/.gcloud-sdk/completion.zsh.inc

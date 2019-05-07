@@ -61,3 +61,4 @@ alias docker-delete-old='docker rm $(docker ps -aqf "status = exited" -f "status
 
 alias realpath="python -c 'import os, sys; print(os.path.realpath(sys.argv[1]))'"
 alias localhost.run="ssh -R 80:localhost:$1 ssh.localhost.run"
+alias sudoedit='sudo -e'
