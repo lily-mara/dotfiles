@@ -1,0 +1,9 @@
+[character]
+symbol = "λ"
+style_success = "fg:#8984ff"
+
+[directory]
+style = "fg:#0088de"
+
+[git_branch]
+style = "fg:#5fd787"

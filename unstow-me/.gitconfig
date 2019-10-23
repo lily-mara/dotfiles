@@ -1,6 +1,6 @@
 [user]
 	name = Nate Mara
-	email = nate.mara@kroger.com
+	email = nate@onesignal.com
 
 [push]
 	default = simple
@@ -39,28 +39,29 @@
 
 	total = "!f() { git log $@ --numstat | perl -ne '$i+=$1 and $d+=$2 if /^(\\d+)\\s+(\\d+)/; END { print \"$i insertion(s), $d deletion(s)\n\"}'; }; f"
 	diff = "diff --dir-diff"
+    cleanup = "!git branch --merged master | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d && git remote prune origin"
 
 [core]
-	excludesfile = /Users/nm46057/.gitignore_global
-	editor = /usr/bin/vim
+	excludesfile = ~/.gitignore_global
+	editor = nvim
 	autocrlf = input
 	pager = diff-so-fancy | less --tabs=4 -RFX
 [color]
 	ui = true
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [diff]
-    tool = meld
+	tool = meld
 [difftool "meld"]
     cmd = meld "$LOCAL" "$REMOTE"
 [difftool]
     prompt = false
 [commit]
-	template = /Users/nm46057/.stCommitMsg
+	template = ~/.stCommitMsg
 [rebase]
 	autoStash = true
 [color "diff-highlight"]
