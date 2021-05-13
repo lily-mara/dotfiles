@@ -1,6 +1,6 @@
 [user]
-	name = Nate Mara
-	email = nate@onesignal.com
+	name = Lily Mara
+	email = lilymara@onesignal.com
 
 [push]
 	default = simple
@@ -39,11 +39,12 @@
 
 	total = "!f() { git log $@ --numstat | perl -ne '$i+=$1 and $d+=$2 if /^(\\d+)\\s+(\\d+)/; END { print \"$i insertion(s), $d deletion(s)\n\"}'; }; f"
 	diff = "diff --dir-diff"
-    cleanup = "!git branch --merged master | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d && git remote prune origin"
+    cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|develop\\|main' | xargs -n 1 git branch -d && git remote prune origin"
+	pop = "reset --soft HEAD~1"
 
 [core]
 	excludesfile = ~/.gitignore_global
-	editor = nvim
+	editor = code --wait
 	autocrlf = input
 	pager = diff-so-fancy | less --tabs=4 -RFX
 [color]
@@ -60,8 +61,6 @@
     cmd = meld "$LOCAL" "$REMOTE"
 [difftool]
     prompt = false
-[commit]
-	template = ~/.stCommitMsg
 [rebase]
 	autoStash = true
 [color "diff-highlight"]

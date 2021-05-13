@@ -1,5 +1,6 @@
 [character]
-symbol = "λ"
+success_symbol = "[λ](cyan)"
+error_symbol = "[λ](bold red)"
 style_success = "fg:#8984ff"
 
 [directory]
@@ -7,3 +8,7 @@ style = "fg:#0088de"
 
 [git_branch]
 style = "fg:#5fd787"
+
+[ruby]
+# Ruby integration is disabled because it is _very_ slow.
+disabled = true

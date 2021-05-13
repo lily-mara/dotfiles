@@ -69,6 +69,18 @@ function _history_search {
 zle -N _history_search
 bindkey '^r' _history_search
 
+function _branch_search {
+	readonly cmd=$(git for-each-ref --format='%(refname:short)' 'refs/heads/*' | fzy)
+	if [ ! -z "${cmd}" ]; then
+		zle kill-whole-line
+		git checkout "${cmd}"
+	fi
+    starship_precmd
+	zle reset-prompt
+}
+
+zle -N _branch_search
+bindkey '^o' _branch_search
 
 export PATH=/Users/nm46057/.local/bin:$PATH
 
