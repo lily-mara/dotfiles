@@ -1,0 +1,14 @@
+path = [
+    "/opt/homebrew/bin",
+    "/opt/homebrew/sbin",
+    "/usr/local/bin",
+    "/usr/bin",
+    "/bin",
+    "/usr/sbin",
+    "/sbin",
+    "/Users/lily/.cargo/bin"
+]
+prompt = "STARSHIP_SHELL= starship prompt"
+
+[env]
+GIT_PROJECT_BASE_DIR = "/Users/lily/projects"
