@@ -6,9 +6,32 @@ path = [
     "/bin",
     "/usr/sbin",
     "/sbin",
-    "/Users/lily/.cargo/bin"
+    "/Users/lily/.cargo/bin",
+    "/var/folders/hh/5nyw43212cq5w2bl4qldlnc80000gn/T/fnm_multishells/18810_1621545223007/bin",
+    "/Users/lily/.rbenv/shims",
+    "/Users/lily/go/bin",
+    "/Users/lily/projects/bin",
+    "/Users/lily/.bin",
 ]
 prompt = "STARSHIP_SHELL= starship prompt"
+startup = [
+    "alias gp = git push",
+    "alias g = git",
+    "alias gl = git pull",
+    "alias grbi = git rebase -i",
+    "alias grbc = git rebase --continue",
+    "alias grba = git rebase --abort",
+    "alias gco = git checkout",
+    "alias gt = git status",
+    "alias fixup = git commit --fixup",
+    "alias _ = sudo",
+]
+skip_welcome_message = true
 
 [env]
+EDITOR = "/usr/local/bin/code --wait"
 GIT_PROJECT_BASE_DIR = "/Users/lily/projects"
+GOPATH = "/Users/lily/projects"
+HOME = "/Users/lily"
+LANG = "en_US.UTF-8"
+PAGER = "less"
